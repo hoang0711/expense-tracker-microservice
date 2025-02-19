@@ -1,6 +1,8 @@
 from expense import Expense
 import os
 import csv
+import requests
+import json
 
 def main():
     """
@@ -16,6 +18,7 @@ def main():
         print("\nWhat would you like to do?")
         print("1. Add an expense")
         print("2. Exit")
+        print("3. Display an inspirational quote")
 
         option = input("Pick an option: ")
 
@@ -38,6 +41,9 @@ def main():
                 else:
                     print("Invalid entry. Please try again!")
 
+        elif option == "3":
+            print(generate_quote())
+
         else:
             print("Invalid entry. Please pick again!")
 
@@ -59,6 +65,23 @@ def clear_screen():
         os.system('cls')
     else:
         os.system('clear')
+
+
+
+def generate_quote():
+    """
+    This function makes a call to the quote_generator microservice so it can fetch a random quote from
+    an external API and display in the UI.
+    """
+    # define the local host url to make a 'get' request with quote_generator.py
+    quote_url = "http://localhost:5025/fetch-quote"
+
+    response = requests.get(quote_url)
+    if response.status_code == 200:
+        return f'"{response.json()}"'
+    else:
+        return 'Connection error!'
+
 
 
 def get_expense():
