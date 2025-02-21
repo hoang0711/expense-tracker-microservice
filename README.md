@@ -25,3 +25,6 @@ def display_random_quote():
 
 print(display_random_quote())
 ```
+UML Diagram:
+
+![Quote Generator UML](https://github.com/user-attachments/assets/77ddcc93-8f6f-468f-ab0a-3a133a5209c4)
