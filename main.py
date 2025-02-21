@@ -68,6 +68,8 @@ def clear_screen():
 
 
 
+
+
 def generate_quote():
     """
     This function makes a call to the quote_generator microservice so it can fetch a random quote from
@@ -81,6 +83,8 @@ def generate_quote():
         return f'"{response.json()}"'
     else:
         return 'Connection error!'
+
+
 
 
 
