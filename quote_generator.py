@@ -4,6 +4,7 @@ from flask import Flask, jsonify
 
 app = Flask(__name__)
 
+# use App Routing decorator to bind random_quote() function to /fetch-quote URL path
 @app.route('/fetch-quote', methods=['GET'])
 
 def random_quote():
