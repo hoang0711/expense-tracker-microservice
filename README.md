@@ -27,4 +27,5 @@ print(display_random_quote())
 ```
 UML Diagram:
 
-![Quote Generator UML](https://github.com/user-attachments/assets/77ddcc93-8f6f-468f-ab0a-3a133a5209c4)
+![Quote Generator UML](https://github.com/user-attachments/assets/175e9264-846c-4ca1-96ee-e7d6e8e579e4)
+
