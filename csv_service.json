@@ -1,0 +1,115 @@
+{
+    "action": "done",
+    "csv_file_path": "C:\\Users\\hoang\\Documents\\CS361assignments\\expense tracker\\expense_data.csv",
+    "output_format": "json",
+    "output_path": "C:\\Users\\hoang\\Documents\\CS361assignments\\expense tracker\\expense_data.json",
+    "data": [
+        {
+            "Expense": "gas",
+            "Amount": "25.15"
+        },
+        {
+            "Expense": "toy",
+            "Amount": "10"
+        },
+        {
+            "Expense": "yogurt",
+            "Amount": "5"
+        },
+        {
+            "Expense": "game",
+            "Amount": "8"
+        },
+        {
+            "Expense": "coffee",
+            "Amount": "5"
+        },
+        {
+            "Expense": "banh mi",
+            "Amount": "7"
+        },
+        {
+            "Expense": "Eggs",
+            "Amount": "4"
+        },
+        {
+            "Expense": "Braclet",
+            "Amount": "15.55"
+        },
+        {
+            "Expense": "Pen",
+            "Amount": "5"
+        },
+        {
+            "Expense": "Bun",
+            "Amount": "1.15"
+        },
+        {
+            "Expense": "Candle",
+            "Amount": "2.15"
+        },
+        {
+            "Expense": "Bike",
+            "Amount": "100"
+        },
+        {
+            "Expense": "",
+            "Amount": ""
+        },
+        {
+            "Expense": "nem",
+            "Amount": "23"
+        },
+        {
+            "Expense": "apple",
+            "Amount": "12.35"
+        },
+        {
+            "Expense": "game",
+            "Amount": "30.2"
+        },
+        {
+            "Expense": "ruler",
+            "Amount": "5"
+        },
+        {
+            "Expense": "Cake",
+            "Amount": "20.15"
+        },
+        {
+            "Expense": "Bike",
+            "Amount": "50"
+        },
+        {
+            "Expense": "Bike",
+            "Amount": "50"
+        },
+        {
+            "Expense": "Bike",
+            "Amount": "50"
+        },
+        {
+            "Expense": "Apple",
+            "Amount": "2.5"
+        },
+        {
+            "Expense": "Watch",
+            "Amount": "100"
+        },
+        {
+            "Expense": "Apple",
+            "Amount": "2.5"
+        },
+        {
+            "Expense": "water bottle",
+            "Amount": "5"
+        },
+        {
+            "Expense": "Bike",
+            "Amount": "200"
+        }
+    ],
+    "info": [
+        ""
+    ]
+}

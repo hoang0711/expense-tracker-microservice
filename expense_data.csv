@@ -1,24 +1,27 @@
-cereal, 20.0
-gas, 25.15
-toy, 10.0
-yogurt, 5.0
-game, 8.0
-coffee, 5.0
-banh mi, 7.0
-Eggs, 4.0
-Braclet, 15.55
-Pen, 5.0
-Bun, 1.15
-Candle, 2.15
-Bike, 100.0
-
-nem, 23.0
-apple, 12.35
-game, 30.2
-ruler, 5.0
-Cake, 20.15
-Bike, 50.0
-Bike, 50.0
-Bike, 50.0
-Apple, 2.5
-Watch, 100.0
+Expense,Amount
+gas,25.15
+toy,10
+yogurt,5
+game,8
+coffee,5
+banh mi,7
+Eggs,4
+Braclet,15.55
+Pen,5
+Bun,1.15
+Candle,2.15
+Bike,100
+,
+nem,23
+apple,12.35
+game,30.2
+ruler,5
+Cake,20.15
+Bike,50
+Bike,50
+Bike,50
+Apple,2.5
+Watch,100
+Apple,2.5
+water bottle,5
+Bike,200

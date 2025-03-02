@@ -3,6 +3,7 @@ import os
 import csv
 import requests
 import json
+import time
 
 def main():
     """
@@ -19,6 +20,7 @@ def main():
         print("1. Add an expense")
         print("2. Exit")
         print("3. Display an inspirational quote")
+        print("4. Show expenses in JSON format")
 
         option = input("Pick an option: ")
 
@@ -28,7 +30,8 @@ def main():
 
         elif option == "2":
             while True:
-                confirm_exit = input("\nAre you sure want to exit? (y/n): ").lower()
+                confirm_exit = input("\nThis option will close the Expense Tracker entirely and you will have to run the program again to manage your expenses. "
+                                     "\nDo you want to exit? (y/n): ").lower()
 
                 if confirm_exit == "y":
                     print("\nExiting Expense Tracker program.\n"
@@ -43,6 +46,12 @@ def main():
 
         elif option == "3":
             print(generate_quote())
+
+        elif option == "4":
+            parser_data = call_csv_parser(parser_request)
+            if parser_data["action"] == "done":
+                print("Expense data has been converted from CSV format to JSON format successfully!")
+                print(parser_data["data"])
 
         else:
             print("Invalid entry. Please pick again!")
@@ -85,7 +94,22 @@ def generate_quote():
         return 'Connection error!'
 
 
+def call_csv_parser(request):
+    with open("csv_service.json", "w") as file:
+        json.dump(request, file, indent=3)
+    time.sleep(2)
+    with open("csv_service.json", "r") as file:
+        request = json.load(file)
+    return request
 
+parser_request = {
+    "action": "run",
+    "csv_file_path": r"C:\Users\hoang\Documents\CS361assignments\expense tracker\expense_data.csv",
+    "output_format": "json",
+    "output_path": r"C:\Users\hoang\Documents\CS361assignments\expense tracker\expense_data.json",
+    "data": "",
+    "info": ""
+}
 
 
 def get_expense():
