@@ -11,7 +11,6 @@ def random_quote():
     """
     This function will fetch a random quote from an external API.
     """
-    # zenquotes.io will be the external API to fetch random quotes from
     response = requests.get('https://zenquotes.io/api/random')
 
     if response.status_code == 200:        # code 200 means successful connection
