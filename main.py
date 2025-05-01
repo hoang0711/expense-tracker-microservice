@@ -1,9 +1,11 @@
-from expense import Expense
+
 import os
 import csv
 import requests
 import json
 import time
+csv_file = "expense_data.csv"
+
 
 def main():
     """
@@ -18,17 +20,19 @@ def main():
     while True:
         print("\nWhat would you like to do?")
         print("1. Add an expense")
-        print("2. Exit")
-        print("3. Display an inspirational quote")
-        print("4. Show expenses in JSON format")
+        print("2. Edit an expense")
+        print("3. Delete an expense")
+        print("4. View all expenses")
+        print("5. Show expenses in JSON format")
+        print("6. Exit")
 
         option = input("Pick an option: ")
 
         if option == "1":
-            clear_screen()    # After pick option 1, the screen will clear to start a new page before get_expense() starts
-            get_expense()
+            os.system(f"python add_function.py")
 
-        elif option == "2":
+        elif option == "6":
+            clear_screen()
             while True:
                 confirm_exit = input("\nThis option will close the Expense Tracker entirely and you will have to run the program again to manage your expenses. "
                                      "\nDo you want to exit? (y/n): ").lower()
@@ -44,27 +48,26 @@ def main():
                 else:
                     print("Invalid entry. Please try again!")
 
-        elif option == "3":
-            print(generate_quote())
-
-        elif option == "4":
+        elif option == "5":
+            clear_screen()
             parser_data = call_csv_parser(parser_request)
             if parser_data["action"] == "done":
                 print("Expense data has been converted from CSV format to JSON format successfully!")
                 print(parser_data["data"])
 
+        elif option == "2":
+            os.system(f"python edit_function.py")
+
+        elif option == "4":
+            clear_screen()
+            view_expenses()
+
+        elif option == "3":
+            os.system(f"python delete_function.py")
+
         else:
             print("Invalid entry. Please pick again!")
 
-    # Get user expense
-    #expense = get_expense()
-    #print(expense)
-
-    # Save expense to a file
-    #save_expense(expense, your_saved_expenses)
-
-    # Show a list of expenses
-    show_expense_list(your_saved_expenses)
 
 def clear_screen():
     """
@@ -76,7 +79,14 @@ def clear_screen():
         os.system('clear')
 
 
+def view_expenses():
+    with open(csv_file, "r") as file:
+        csv_read = csv.reader(file)
+        expense_list = list(csv_read)
 
+        print("\nThis is the full list of expenses:")
+        for line in expense_list:
+            print(": ".join(line))
 
 
 def generate_quote():
@@ -110,43 +120,6 @@ parser_request = {
     "data": "",
     "info": ""
 }
-
-
-def get_expense():
-    """
-    This method will prompt the user to enter an expense and its amount. It will then store them in a CSV file.
-    """
-    clear_screen()
-    print("Please provide your expense and amount below!")
-    expense_name = str(input("Enter the expense name: "))
-    expense_amount = float(input("Enter the amount: "))
-    user_expense = Expense(name=expense_name, amount=expense_amount)
-    with open("expense_data.csv", "a") as expensefile:
-        expensefile.write(f"{user_expense.name}, {user_expense.amount}\n")
-    print("Your expense is saved!")
-
-
-def show_expense_list(your_saved_expenses):
-    expense_list: list[Expense] = []
-    with open(your_saved_expenses, "r") as efile:
-        lines = efile.readlines()
-        for line in lines:
-            expense_name, expense_amount = line.strip().split(",")
-            #print(expense_name, expense_amount)
-
-            item_per_line = Expense(name=expense_name, amount=float(expense_amount))
-            expense_list.append(item_per_line)
-
-    expense_dict = {}
-    for expense in expense_list:
-        key = expense.name
-        if key in expense_dict:
-            expense_dict[key] += expense.amount
-        else:
-            expense_dict[key] = expense.amount
-
-    for key, amount in expense_dict.items():
-        print(f"   {key}: ${amount:.2f}")
 
 if __name__ == "__main__":
     main()
